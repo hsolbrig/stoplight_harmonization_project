@@ -3,12 +3,12 @@ SCHEMA_DIR = $(SRC_DIR)/schema
 SOURCE_FILES := $(shell find $(SCHEMA_DIR) -name '*.yaml')
 SCHEMA_NAMES = $(patsubst $(SCHEMA_DIR)/%.yaml, %, $(SOURCE_FILES))
 
-SCHEMA_NAME = my_schema
+SCHEMA_NAME = stoplight
 SCHEMA_SRC = $(SCHEMA_DIR)/$(SCHEMA_NAME).yaml
 TGTS = graphql jsonschema docs shex owl csv graphql python
 
 #GEN_OPTS = --no-mergeimports
-GEN_OPTS = 
+GEN_OPTS =
 
 all: gen stage
 gen: $(patsubst %,gen-%,$(TGTS))
@@ -59,7 +59,7 @@ target/python/%.py: $(SCHEMA_DIR)/%.yaml  tdir-python
 
 ###  -- MARKDOWN DOCS --
 # TODO: modularize imports. For now imports are merged.
-gen-graphql:target/graphql/$(SCHEMA_NAME).graphql 
+gen-graphql:target/graphql/$(SCHEMA_NAME).graphql
 target/graphql/%.graphql: $(SCHEMA_DIR)/%.yaml tdir-graphql
 	gen-graphql $(GEN_OPTS) $< > $@
 

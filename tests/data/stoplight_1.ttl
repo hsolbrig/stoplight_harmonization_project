@@ -1,0 +1,16 @@
+@prefix  poc: <https://pocatello.us/public_records/stoplights/> .
+@prefix pato: <http://purl.obolibrary.org/obo/PATO_> .
+@prefix stoplight: <https://examples.org/stoplightrepository/> .
+
+poc:GTT_117328 a poc:StopLight ;
+        poc:active: true ;
+        poc:lenses: [poc:number 1;
+                     poc:color "r";
+                     poc:position "t"],
+                    [poc:number 2;
+                     poc:color "y";
+                     poc:position "m"],
+                    [poc:number 3;
+                     poc:color "g";
+                     poc:position "b"] .
+

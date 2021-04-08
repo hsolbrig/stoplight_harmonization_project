@@ -1,0 +1,29 @@
+enums:
+  lens_color_v1:
+    description: Harmonized stoplight lens color CODE
+    code_set: ORS:pato_colors
+    permissible_values:
+      “0000322”:
+        meaning: PATO:0000322
+      "0000323":
+        meaning: PATO:0000323
+
+  lens_color_v2:
+    description: Harmonized stoplight lens color URI
+    code_set: ORS:pato_colors
+    permissible_values:
+      “PATO:0000322”:
+        meaning: PATO:0000322
+      "PATO:0000323":
+        meaning: PATO:0000323
+
+  lens_color_v3:
+    description: Harmonized stoplight lens color URI
+    code_set: ORS:pato_colors
+    permissible_values:
+      “http://purl.obolibrary.org/obo/PATO_”:
+        meaning: PATO:0000322
+      "http://purl.obolibrary.org/obo/PATO_":
+        meaning: PATO:0000323
+
+

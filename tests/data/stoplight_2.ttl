@@ -1,0 +1,5 @@
+@prefix tf: <https://www.tfid.org/works/sl/> .
+@prefix sct: <http://snomed.info/id/> .
+
+tf:akc17-l-m2-17743x.1 a tf:TwinFallsLight ;
+        tf:bulbs sct:371240000, sct:371244009, "9".

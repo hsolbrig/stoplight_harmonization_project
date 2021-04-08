@@ -1,0 +1,50 @@
+id: https://examples.org/stoplights/harmonizedmodel/
+name: hsm
+description: A harmonized model of stoplights
+comments: This model was created as part of a tutorial on LinkML Enumerations
+
+prefixes:
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  HSM: https://examples.org/stoplights/harmonizedmodel/
+  ORS: https://ontologies-r.us/stoplights/codeset/
+
+default_prefix: HSM
+
+imports:
+  - types
+
+enums:
+  lens_color:
+    description: Harmonized stoplight lens color
+    code_set: ORS:pato_colors
+    pv_formula: CODE
+
+  id_scheme:
+    description: Stoplight identification schemes
+    permissible_values:
+      boise:
+        description: Boise Identification scheme
+      tf:
+        description: Twin Falls Identification scheme
+      poc:
+        description: Pocatello Identification scheme
+
+classes:
+  StoplightId:
+    attributes:
+      scheme:
+        range: id_scheme
+        required: false
+      id:
+        range: string
+        required: true
+
+  harmonized_stoplight:
+    attributes:
+      id:
+        range: StoplightId
+        required: true
+      color:
+        range: lens_color
+      position:
+        range: string

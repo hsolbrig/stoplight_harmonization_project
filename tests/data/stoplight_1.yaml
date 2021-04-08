@@ -1,0 +1,13 @@
+StopLight:
+  id: GTT_117328
+  active: true
+  lenses:
+    - number: 1
+      color: r
+      position: t
+    - number: 2
+      color: y
+      position: m
+    - number: 3
+      color: g
+      position: b

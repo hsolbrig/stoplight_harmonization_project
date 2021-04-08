@@ -1,0 +1,14 @@
+@prefix boise: <https://cityofboise.org/17/12/> .
+@prefix pato: <http://purl.obolibrary.org/obo/PATO_> .
+@prefix sdo: <https://schema.org> .
+
+boise:7th_and_main a boise:Semaphore;
+        boise:lens boise:L17, boise:L18 .
+
+boise:L17 a boise:Lens;
+        sdo:color pato:0000322 .
+
+boise:L18 a boise:Lens;
+        sdo:color "multicolored" .
+
+

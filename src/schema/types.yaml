@@ -1,0 +1,60 @@
+title: Stoplight Harmonization Types
+name: types
+id: https://examples.org/stoplightdescriptions/types
+
+description: Shared type definitions for the harmonization of stoplight registries
+license: https://creativecommons.org/publicdomain/zero/1.0/
+version: 0.0.1
+
+prefixes:
+  slt: https://examples.org/stoplightdescriptions/types
+  xsd: http://www.w3.org/2001/XMLSchema#
+  shex: http://www.w3.org/ns/shex#
+
+default_prefix: slt
+default_range: string
+
+types:
+  string:
+    uri: xsd:string
+    base: str
+    description: A character string
+
+  integer:
+    uri: xsd:integer
+    base: int
+    description: An integer
+
+  boolean:
+    uri: xsd:boolean
+    base: Bool
+    repr: bool
+    description: A binary (true or false) value
+
+
+  date:
+    uri: xsd:date
+    base: XSDDate
+    repr: str
+    description: a date (year, month and day) in an idealized calendar
+    notes:
+      - URI is dateTime because OWL reasoners don't work with straight date or time
+
+  uriorcurie:
+    uri: xsd:anyURI
+    base: URIorCURIE
+    repr: str
+    description: a URI or a CURIE
+
+  uri:
+    uri: xsd:anyURI
+    base: URI
+    repr: str
+    description: a complete URI
+
+  ncname:
+    uri: xsd:string
+    base: NCName
+    repr: str
+    description: Prefix part of CURIE
+

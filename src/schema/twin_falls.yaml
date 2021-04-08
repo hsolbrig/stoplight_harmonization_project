@@ -1,0 +1,47 @@
+id: https://examples.org/stoplightdescriptions/twin_falls
+name: twin_falls_stoplight_model
+description: Model of the Twin Falls stoplight database
+comments: This model was devloped as part of a tutorial on LinkML Enumerations
+notes:
+  - Everything in this model is entirely fictional
+
+imports:
+  - types
+
+prefixes:
+  TF: https://www.tfid.org/works/sl/
+  SCT: http://snomed.info/id/
+  STOPLIGHT: https://examples.org/stoplightrepository/
+
+
+default_prefix: TF
+
+enums:
+  lens_color:
+    description: Stoplight lense colors used in the Twin Falls stoplight record
+    permissible_values:
+      1:
+        description: Red
+        meaning: SCT:371240000
+      2:
+        description: Yellow
+        meaning: SCT:371244009
+      3:
+        description: Green
+        meaning: SCT:371246006
+
+      9: Other color
+      98: Missing lens
+      99: Color unknown
+
+
+classes:
+  TwinFallsLight:
+    attributes:
+      sku:
+        identifier: True
+        range: string
+      bulbs:
+        range: lens_color
+        multivalued: true
+        required: true

@@ -1,0 +1,74 @@
+id: https://examples.org/stoplightdescriptions/pocatello
+name: pocatello_stoplight_model
+description: Model of the Pocatello stoplight registry
+comments: This model was devloped as part of a tutorial on LinkML Enumerations
+notes:
+  - Everything in this model is entirely fictional
+
+imports:
+  - types
+
+prefixes:
+  POC: https://pocatello.us/public_records/stoplights/
+  SDO: https://schema.org/
+
+
+default_prefix: POC
+
+
+enums:
+  lens_color:
+    description: Stoplight lense colors used in the Pocatello stoplight registry
+    permissible_values:
+      r: Red
+      y: Yellow
+      g: Green
+      o:
+        notes:
+          - |-
+            This value has not been spelled out in the Pocatello data model -- we believe that it represents any color
+            other than the first three, but have not been able to confirm it
+
+
+  lens_position:
+    description: The location of a lense in a Pocatello stoplight
+    permissible_values:
+      t: top light
+      b: bottom light
+      c:
+        description: Center light
+        comments: Only used when there are exactly three lights
+      o:
+        description: non-top, non-bottom light in ligths with four or more lenses
+
+classes:
+  Lens:
+    description: The description and location of a lens in a stoplight
+    attributes:
+      number:
+        range: integer
+        description: arbitrary tag that uniquely identifies a specific lense in a stoplight
+        key: true
+      color:
+        range: lens_color
+        required: true
+        slot_uri: SDO:color
+      position:
+        range: lens_position
+        required: true
+
+  StopLight:
+    description: A record of a stoplight in the Pocatello scheme of things
+    attributes:
+      id:
+        range: string
+        identifier: true
+        description: The unique identifier of a particular stoplight
+      active:
+        range: boolean
+        ifabsent: true
+        description: True means that the stoplight is in use.  False means it is in storage
+      lenses:
+        range: Lens
+        multivalued: true
+        inlined_as_list: true

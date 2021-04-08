@@ -1,0 +1,7 @@
+imports:
+  - namespeaces
+
+codesets:
+    POC:pato_colours:
+      descendants_of: PATO:00000311
+

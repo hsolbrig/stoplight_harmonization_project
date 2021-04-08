@@ -1,0 +1,62 @@
+name: boise_stoplights
+id: https://examples.org/stoplightdescriptions/boise
+license:
+description: Fictional model of the Boise stoplight data store
+comments: This model was devloped as part of a tutorial on LinkML Enumerations
+notes:
+  - Everything in this model is entirely fictional
+  - Make sure that any new URI's align with other models
+todos:
+  - Update model to use "colour" to clarify SDO example
+see_also:
+  -
+
+imports:
+  - types
+
+prefixes:
+  BOISE: https://cityofboise.org/17/12/sl/
+  TF: https://www.tfid.org/works/sl/
+  POC: https://pocatello.us/public_records/stoplights/
+  HSM: https://examples.org/stoplights/harmonizedmodel/
+  BL: https://cityofboise.org/lensid#
+  STOPLIGHT: https://examples.org/stoplightrepository/
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  ORS: https://ontologies-r.us/stoplights/codeset/
+  SDO: https://schema.org/
+
+default_prefix: BOISE
+
+enums:
+  lens_color:
+    description: Stoplight lense colors as recorded in the Boise city stoplight repository
+    code_set: POC:pato_colours
+    permissible_values:
+      red:
+        meaning: PATO:0000322
+      yellow:
+        meaning: PATO:0000324
+      green:
+        meaning: PATO:0001271
+      multicolored:
+        description: Multiple lens colors
+
+classes:
+  Lens:
+    attributes:
+      id:
+        range: string
+        key: true
+      color:
+        slot_uri: SDO:color
+        range: lens_color
+
+  Semaphore:
+    attributes:
+      id:
+        range: uri
+        identifier: true
+      lens:
+        range: Lens
+        multivalued: true
+        inlined: true

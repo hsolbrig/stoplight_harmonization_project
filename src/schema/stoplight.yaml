@@ -1,0 +1,107 @@
+id: https://examples.org/stoplightdescriptions
+name: stoplights
+description: A model that allows various stoplights to be described
+comments: This model was created as part of a tutorial on LinkML Enumerations
+
+prefixes:
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  STOPLIGHT: https://examples.org/stoplightrepository/
+  POC: https://pocatello.us/public_records/stoplights/
+  TF: https://www.tfid.org/works/sl/
+  BOISE: https://cityofboise.org/17/12/sl/
+
+default_prefix: STOPLIGHT
+
+imports:
+  - types
+
+enums:
+  pocatello_lens_color:
+    description: Stoplight lense colors used in the Pocatello stoplight registry
+    permissible_values:
+      r: Red
+      y: Yellow
+      g: Green
+      o:
+        notes:
+          - |-
+            This value has not been spelled out in the Pocatello data model -- we believe that it represents any color
+            other than the first three, but have not been able to confirm it
+
+
+  pocatello_lens_location:
+    description: The location of a lense in a Pocatello stoplight
+    permissible_values:
+      t: top light
+      b: bottom light
+      c:
+        description: Center light
+        comments: Only used when there are exactly three lights
+      o:
+        description: non-top, non-bottom light in ligths with four or more lenses
+
+  twin_falls_lens_color:
+    description: Stoplight lense colors used in the Twin Falls stoplight record
+    permissible_values:
+      1: Red
+      2: Yellow
+      3: Green
+      9: Other color
+      98: Missing lens
+      99: Color unknown
+
+  boise_lens_color:
+    description: Stoplight lense colors as recorded in the Boise city stoplight repository
+    permissible_values:
+      red:
+        meaning: PATO:0000322
+      yellow:
+        meaning: PATO:0000324
+      green:
+        meaning: PATO:0001271
+      multicolored:
+        description: Multiple lens colors
+
+  harmonized_lens_color:
+    description: Possible values for a lense color in the standard stoplight record
+    code_set: STOPLIGHT:LENSCOLORS
+    pv_formula: CODE
+
+
+classes:
+  PocatelloLens:
+    attributes:
+      position:
+
+  PocatelloStoplight:
+    attributes:
+      light_id:
+        identifier: True
+        range: integer
+      light_description:
+        range: string
+      lenses:
+        range: pocatello_lens_color
+        multivalued: true
+        required: true
+
+  TwinFallsLight:
+    attributes:
+      sku:
+        identifier: True
+        range: string
+      bulbs:
+        range: pocatello_lens_color
+        multivalued: true
+        required: true
+
+  BoiseLightRecord:
+    attributes:
+      light_id:
+        range: uri
+        identifier: True
+      colors:
+        description: Lens identifiers in a boise light
+        range: boise_lens_color
+        multivalued: true
+        required: false
