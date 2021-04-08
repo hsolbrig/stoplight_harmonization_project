@@ -1,0 +1,75 @@
+id: https://examples.org/stoplights/evolutionoptions/
+name: hsmevol
+description: Demonstration of the evolution of the stoplight options
+
+prefixes:
+  PATO: http://purl.obolibrary.org/obo/PATO_
+  EV: https://examples.org/stoplights/evoutionoptions/
+  ORS: https://ontologies-r.us/stoplights/codeset/
+
+default_prefix: EV
+
+imports:
+  - types
+
+enums:
+  lens_color_1:
+    description: Strictly a local enumeration.
+    notes:
+      - should "r" be represented as s p "r"^^xsd:string or s p ev:r ?
+    permissible_values:
+      r: Red
+      y: Yellow
+      g: Green
+      o: Other color
+
+  lens_color_2:
+    description: A local enumeration with unvalidated bindings
+    permissible_values:
+      r:
+        description: Red
+        meaning: PATO:0000322
+      y:
+        description: Yellow
+        meaning: PATO:0000324
+      g:
+        description: Green
+        meaning: PATO:0001271
+      o: other color
+
+  lens_color_3:
+    description: An enumeration with bindings that are validated against a local code set
+    code_set: codesets/colours_3
+    pv_formula: CODE
+    permissible_values:
+      r:
+        description: Red
+        meaning: PATO:0000322
+      y:
+        description: Yellow
+        meaning: PATO:0000324
+      g:
+        description: Green
+        notes:
+          - This code has a deliberate typo in the meaning link.  It should not pass validation.
+        meaning: PATO:00012711
+      o: other color
+
+
+  lens_color_4:
+    description: An enumeration with bindings that use the CODE component of the code set
+    code_set: colours_3
+    us
+    permissible_values:
+      r:
+        description: Red
+        meaning: PATO:0000322
+      y:
+        description: Yellow
+        meaning: PATO:0000324
+      g:
+        description: Green
+        notes:
+          - This code has a deliberate typo in the meaning link.  It should not pass validation.
+        meaning: PATO:00012711
+      o: other color
