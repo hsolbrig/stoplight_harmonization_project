@@ -1,0 +1,46 @@
+id: https://examples.org/stoplights/colours_3/
+name: colours_3
+description: Stoplight colours_3 code set resolution
+notes:
+  - The resolution of codeset definition 
+
+imports:
+  - prefixes
+
+default_prefix: EV
+
+members:
+  - uri: http://purl.obolibrary.org/obo/PATO_0000322
+    code: PATO:0000322
+    defined_in: CS:PATO
+    designation: red
+    reference: http://purl.obolibrary.org/obo/PATO_0000322
+    definition: |-
+      A color hue with high wavelength of the long-wave end of the visible 
+      spectrum, evoked in the human observer by radiant energy with wavelengths 
+      of approximately 630 to 750 nanometers.
+  - uri: http://purl.obolibrary.org/obo/PATO_0000320
+    code: PATO:0000320
+    defined_in: PATO
+    designation: green
+    reference: http://purl.obolibrary.org/obo/PATO_0000320
+    definition: |-
+      A color hue with medium-low wavelength of that portion of the visible 
+      spectrum lying between yellow and blue, evoked in the human observer by 
+      radiant energy with wavelengths of approximately 490 to 570 nanometers.
+  - uri: http://purl.obolibrary.org/obo/PATO_0000324
+    code: PATO:0000324
+    defined_in: PATO
+    designation: yellow      
+    reference: http://purl.obolibrary.org/obo/PATO_0000324    
+    definition: |-
+      A color hue with medium wavelength of that portion of the visible 
+      spectrum lying between orange and green, evoked in the human observer 
+      by radiant energy with wavelengths of approximately 570 to 590 nanometers.
+  - uri: http://purl.obolibrary.org/obo/PATO_0001271
+    code: PATO:0001271
+    defined_in: PATO
+    designation: yellow
+    reference: http://purl.obolibrary.org/obo/PATO_0001271    
+    definition: A color consisting of green hue and high saturation.
+

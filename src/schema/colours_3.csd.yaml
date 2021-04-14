@@ -14,7 +14,7 @@ include:
     namespace: PATO
     codes:
       - PATO:0000322
-      - 0000324
-      - 0000325
-      - 0001271
+      - PATO:0000324
+      - PATO:0000320
+      - PATO:0001271
       -  ...
